@@ -71,23 +71,23 @@ def query_contacts():
     conn.close()
 
 def update_contact():
-    contact_id = input("Enter ID: ")
+    phone = input("Enter phone number of contact to update: ")
     new_name = input("New name: ")
-    new_phone = input("New phone: ")
+    new_surname = input("New surname: ")
 
     conn = get_connection()
     cur = conn.cursor()
 
     if new_name:
         cur.execute(
-            "UPDATE phonebook SET firstname = %s WHERE id = %s",
-            (new_name, contact_id)
+            "UPDATE phonebook SET firstname = %s WHERE phonenumber = %s",
+            (new_name, phone)
         )
 
-    if new_phone:
+    if new_surname:
         cur.execute(
-            "UPDATE phonebook SET phonenumber = %s WHERE id = %s",
-            (new_phone, contact_id)
+            "UPDATE phonebook SET secondname = %s WHERE phonenumber = %s",
+            (new_surname, phone)
         )
 
     conn.commit()
