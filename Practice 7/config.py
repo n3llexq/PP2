@@ -1,4 +1,4 @@
 host = "localhost"
-database = "suppliers"
+db_name = "postgres"
 user = "postgres"
 password = "admin222"
